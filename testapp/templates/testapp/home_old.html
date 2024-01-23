@@ -1,0 +1,111 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+</style>
+
+<div class="home-container">
+
+    <div>
+     {% include 'testapp/topics_component.html' %}  
+    </div>
+    <div>
+
+
+    <div>  
+        <h5>{{room_count}} rooms available</h5>
+        <a href="{% url 'create-Room' %}"> Create Room</a>
+        {% include 'testapp/feed_component.html' %}
+    </div>         
+
+    </div>
+    <div>
+        {% include 'testapp/activity_component.html' %}
+    </div>
+</div>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your E-Commerce Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 2em;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin: 1em;
+            width: 300px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your E-Commerce Store</h1>
+        <a href="{% url 'create-Room' %}"> Create Room</a>
+       
+    </header>
+
+    <section>
+        {% for room in rooms %}
+        <div class="product">
+            <a href="{% url 'update-room' room.id %}"> Edit</a>
+            <a href="{% url 'delete-room' room.id %}"> Delete</a>
+            <span> {{ room.host.username }}</span>
+            <img src="product1.jpg" alt="Product 1">
+            <h2>{{ room.host.username }}</h2>
+            <h3> --<a href="{% url 'room' room.id %}"> {{room.name}}</a></h3>
+            <p>{{room.description}}</p>
+            <p>{{room.id}}</p>
+
+            <button>Add to Cart</button>
+        </div>
+        {% endfor %}
+       
+        <!-- Add more products as needed -->
+
+    <!-- </section>
+
+    <footer>
+        <p>&copy; 2023 Your E-Commerce Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html> --> 
+
+
+
+{% endblock content %}
